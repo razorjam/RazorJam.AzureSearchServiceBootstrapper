@@ -86,7 +86,11 @@ public class Startup
     ...
         public IServiceProvider ConfigureServices( IServiceCollection services )
         {
+            // The configuration in appsettings.json is injected into the bootstrapper
+            services.AddOptions();
+            services.Configure< AzureSearchServiceConfiguration >( options => Configuration.GetSection( "AzureSearchServiceConfiguration" ).Bind( options ) );
             ...
+            // Resolve and execute the bootstrapper
             serviceProvider.GetService< IAzureSearchServiceBootstrapper >().ConfigureAsync().Wait();
             ...
         }
