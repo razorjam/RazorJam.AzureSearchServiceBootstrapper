@@ -78,8 +78,8 @@ Create Indexer API: https://docs.microsoft.com/en-us/rest/api/searchservice/Crea
 
 ## Usage
 ```
-using RazorJam.AzureSearchConfiguration;
-using RazorJam.AzureSearchConfiguration.Options;
+using RazorJam.AzureSearchServiceBootstrapper;
+using RazorJam.AzureSearchServiceBootstrapper.Options;
 
 public class Startup
 {

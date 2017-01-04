@@ -1,4 +1,4 @@
-﻿namespace RazorJam.AzureSearchConfiguration.Options
+﻿namespace RazorJam.AzureSearchServiceBootstrapper.Options
 {
    // https://docs.microsoft.com/en-us/rest/api/searchservice/Create-Indexer?redirectedfrom=MSDN
    public class IndexerConfiguration

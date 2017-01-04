@@ -1,4 +1,4 @@
-﻿namespace RazorJam.AzureSearchConfiguration.Exceptions
+﻿namespace RazorJam.AzureSearchServiceBootstrapper.Exceptions
 {
    using System;
 

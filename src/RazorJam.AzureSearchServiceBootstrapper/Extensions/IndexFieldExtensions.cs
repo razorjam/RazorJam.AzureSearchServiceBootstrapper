@@ -1,4 +1,4 @@
-﻿namespace RazorJam.AzureSearchConfiguration.Extensions
+﻿namespace RazorJam.AzureSearchServiceBootstrapper.Extensions
 {
    using Exceptions;
    using Microsoft.Azure.Search.Models;

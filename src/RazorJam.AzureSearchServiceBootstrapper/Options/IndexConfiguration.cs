@@ -1,4 +1,4 @@
-﻿namespace RazorJam.AzureSearchConfiguration.Options
+﻿namespace RazorJam.AzureSearchServiceBootstrapper.Options
 {
    using System.Collections.Generic;
 

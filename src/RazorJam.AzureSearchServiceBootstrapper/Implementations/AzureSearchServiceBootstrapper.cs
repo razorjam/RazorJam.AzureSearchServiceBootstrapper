@@ -1,4 +1,4 @@
-﻿namespace RazorJam.AzureSearchConfiguration.Implementations
+﻿namespace RazorJam.AzureSearchServiceBootstrapper.Implementations
 {
    using System.Linq;
    using System.Threading.Tasks;
