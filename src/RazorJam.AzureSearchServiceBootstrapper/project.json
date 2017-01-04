@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0-*",
+    "version": "1.0.0-*",
 
     "dependencies": {
         "Microsoft.Azure.Search": "3.0.1",
@@ -7,10 +7,15 @@
         "NETStandard.Library": "1.6.1"
     },
 
-  "frameworks": {
-    "netstandard1.6": {
-        "imports": "dnxcore50"
+    "frameworks": {
+        "netstandard1.6": {
+            "imports": "dnxcore50"
+        },
+        "net462": {}
     },
-    "net462": {}
-  }
+    "scripts": {
+        "postcompile": [
+            "nuget pack RazorJam.AzureSearchServiceBootstrapper.nuspec -NoPackageAnalysis"
+        ]
+    }
 }

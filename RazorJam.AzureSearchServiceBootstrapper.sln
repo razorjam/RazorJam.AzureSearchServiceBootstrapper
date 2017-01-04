@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{42D4E216-541D-433C-AE49-05C6B276E9E9}"
+EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RazorJam.AzureSearchServiceBootstrapper", "src\RazorJam.AzureSearchServiceBootstrapper\RazorJam.AzureSearchServiceBootstrapper.xproj", "{4FC8885C-3FC9-4600-97CA-488C5EAF32CF}"
 EndProject
 Global
@@ -18,5 +20,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FC8885C-3FC9-4600-97CA-488C5EAF32CF} = {42D4E216-541D-433C-AE49-05C6B276E9E9}
 	EndGlobalSection
 EndGlobal

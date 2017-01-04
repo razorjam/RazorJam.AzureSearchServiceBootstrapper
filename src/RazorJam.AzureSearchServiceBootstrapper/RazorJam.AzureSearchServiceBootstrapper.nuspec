@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>RazorJam.AzureSearchServiceBootstrapper</id>
+    <version>1.0.1</version>
+    <authors>Elliot Chaim</authors>
+    <owners>razorjam</owners>
+    <projectUrl>https://github.com/razorjam/RazorJam.AzureSearchServiceBootstrapper</projectUrl>
+    <iconUrl>https://github.com/razorjam/RazorJam.AzureSearchServiceBootstrapper/nuget/icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A tool which bootstraps your azure search service entities.</description>
+    <copyright>Copyright 2017</copyright>
+    <tags>razor jam razorjam azure search service configuration bootstrap bootstrapper api</tags>
+  </metadata>
+</package>
