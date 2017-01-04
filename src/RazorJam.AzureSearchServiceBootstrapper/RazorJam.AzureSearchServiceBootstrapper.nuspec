@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>RazorJam.AzureSearchServiceBootstrapper</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <authors>Elliot Chaim</authors>
     <owners>razorjam</owners>
     <projectUrl>https://github.com/razorjam/RazorJam.AzureSearchServiceBootstrapper</projectUrl>
