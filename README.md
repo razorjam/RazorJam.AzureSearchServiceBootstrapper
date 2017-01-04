@@ -10,59 +10,46 @@ Then, simply configure your azure search service in appsettings.json.
 ```
 {
     "AzureSearchServiceConfiguration": {
-        "Name": "test-search-service",
-        "AdminKey": "adminkey",
-        "QueryKey": "querykey", // include to use the same config 'SearchService' implementation, if wanted
+        "Name": "required. your search service name",
+        "AdminKey": "required. your search service admin key",
+        "QueryKey": "optional. the query key for your search service, if you wish to use this configuration elsewhere in your application",
         "DataSource": {
-            "Name": "test-storage-account",
-            "Type": "azuretable",
+            "Name": "Required. Name of your data source",
+            "Type": "Required. Must be one of 'azuresql', 'documentdb', 'azureblob', or 'azuretable'",
             "Credentials": {
-                "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=test-storage-account;AccountKey=keykeykeykey"
+                "ConnectionString": "Required. Connection string for your data source"
             },
             "Container": {
-                "Name": "test-table",
-                "Query": "RowKey ne 'authentication-details'" // for example
+                "Name": "Required. Name of the table, collection, or blob container you wish to index",
+                "Query": "Optional. Allows you to limit the search to a subset of the data in your container"
             },
-            "DataDeletionDetectionPolicy": {
-                "Type": "soft",
-                "SoftDeleteColumnName": "IsDeleted",
-                "SoftDeleteMarkerValue": "true"
+            "DataDeletionDetectionPolicy": (optional) {
+                "Type": "soft", // currently only 'soft' is available
+                "SoftDeleteColumnName": "the column that specifies whether a row was deleted",
+                "SoftDeleteMarkerValue": "the value that identifies a row as deleted"
             }
         },
         "Index": {
-            "Name": "test-index",
+            "Name": "Required. Name of your index",
             "Fields": [
+                ...,
                 {
-                    "Name": "Id",
-                    "Type": "DataType.String",
-                    "IsKey": true,
-                    "IsRetrievable": true
+                    "Name": "Required. Name of the field",
+                    "Type": "DataType.String | DataType.Int32 | DataType.Int64 | DataType.Double | DataType.Boolean | DataType.DateTimeOffset | DataType.GeographyPoint",
+                    "IsKey": true | false (default),
+                    "IsRetrievable": true (default) | false,
+                    "IsSearchable": true | false (default),
+                    "IsFilterable": true | false (default),
+                    "IsSortable": true | false (default),
+                    "IsFacetable": true | false (default),
                 },
-                {
-                    "Name": "Name",
-                    "Type": "DataType.String",
-                    "IsFilterable": true,
-                    "IsRetrievable": true
-                },
-                {
-                    "Name": "Gender",
-                    "Type": "DataType.String",
-                    "IsRetrievable": true,
-                    "IsFacetable": true,
-                    "IsSearchable": true
-                }
-                {
-                    "Name": "DateCreated",
-                    "Type": "DataType.DateTimeOffset",
-                    "IsRetrievable": false,
-                    "IsSortable": true
-                }
+                ...
             ]
         },
         "Indexer": {
-            "Name": "test-indexer",
+            "Name": "Required. The name of the indexer",
             "Schedule": {
-                "Interval": "PT5M", // an XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value). See indexer api docs
+                "Interval": "Required. An XSD "dayTimeDuration" value (a restricted subset of an ISO 8601 duration value), e.g. 'PT5M' for every 5 minutes. ", // See indexer api docs for more info
                 "StartTime": "now" // if value == "now", will use DateTime.Now, otherwise will use DateTime.Parse( value )
             }
         }
