@@ -1,25 +1,9 @@
 A tool which bootstraps your azure search service entities (data sources, indexes, and indexers). Intended to be used with configuration as a away to persist changes to your indexes in source control. Works perfectly with dotnetcore, not yet tested on net462.
 
-# Usage
-The following example is using autofac with dotnetcore. You get the idea.
-```
-using RazorJam.AzureSearchConfiguration;
-using RazorJam.AzureSearchConfiguration.Options;
+# Example (dotnetcore)
+This example uses dotnetcore and autofac.
 
-public class Startup
-{
-    ...
-        public IServiceProvider ConfigureServices( IServiceCollection services )
-        {
-            ...
-            serviceProvider.GetService< IAzureSearchServiceBootstrapper >().ConfigureAsync().Wait();
-            ...
-        }
-    ...
-}
-```
-
-# Configuration Example (dotnetcore)
+## Configuration
 First, create your search service in azure. Take note of it's name and admin key, as you'll need these.
 Then, simply configure your azure search service in appsettings.json. 
 
@@ -91,6 +75,24 @@ You may notice that the format here is very, very similar to the request payload
 Create Data Source API: https://docs.microsoft.com/en-us/rest/api/searchservice/Create-Data-Source?redirectedfrom=MSDN
 Create Index API: https://docs.microsoft.com/en-us/rest/api/searchservice/Create-Index?redirectedfrom=MSDN
 Create Indexer API: https://docs.microsoft.com/en-us/rest/api/searchservice/Create-Indexer?redirectedfrom=MSDN
+
+## Usage
+```
+using RazorJam.AzureSearchConfiguration;
+using RazorJam.AzureSearchConfiguration.Options;
+
+public class Startup
+{
+    ...
+        public IServiceProvider ConfigureServices( IServiceCollection services )
+        {
+            ...
+            serviceProvider.GetService< IAzureSearchServiceBootstrapper >().ConfigureAsync().Wait();
+            ...
+        }
+    ...
+}
+```
 
 ### Help!
 If you're stuck, find a broken thing, or think there needs to be more detail in this readme, get in touch: elliot.chaim@razorjam.co.uk
