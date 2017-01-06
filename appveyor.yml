@@ -3,13 +3,13 @@
     only:
       - master
 
-  version: 1.0.7.{build}
+  version: 1.0.8.{build}
 
   image: Visual Studio 2015
 
   init:
     - git config --global core.autocrlf input
-  
+
   assembly_info:
     assembly_version: '{version}'
     assembly_file_version: '{version}'
@@ -21,6 +21,9 @@
 
   before_build:
    - dotnet restore
+
+  cache:
+    - packages -> **\packages.config
 
   test: off
 
