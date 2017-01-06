@@ -1,20 +1,31 @@
-version: 1.0.0-{build}
-pull_requests:
-  do_not_increment_build_number: true
-configuration: Release
-nuget:
-  account_feed: true
-  project_feed: true
-  disable_publish_on_pr: true
-before_build:
-- ps: dotnet restore
-build:
-  project: RazorJam.AzureSearchServiceBootstrapper.sln
-  publish_nuget: true
-  publish_nuget_symbols: true
-  include_nuget_references: true
-  parallel: true
-  verbosity: minimal
-test: off
-artifacts:
-- path: src\RazorJam.AzureSearchServiceBootstrapper\bin\Release\RazorJam.AzureSearchServiceBootstrapper.*.nupkg
+-
+  branches:
+    only:
+      - master
+
+  version: 1.0.7.{build}
+
+  image: Visual Studio 2015
+
+  init:
+    - git config --global core.autocrlf input
+  
+  assembly_info:
+    assembly_version: '{version}'
+    assembly_file_version: '{version}'
+    assembly_informational_version: '{version}'
+    file: AssemblyInfo.*
+    patch: true
+
+  configuration: Release
+
+  before build:
+   - dotnet restore
+
+  test: off
+
+  artifacts:
+    - path: **\*.nupkg
+
+  on_failure:
+    - ps: Update-AppveyorBuild -Version "$($Env:APPVEYOR_BUILD_VERSION).$($Env:APPVEYOR_BUILD_NUMBER)-fail"
