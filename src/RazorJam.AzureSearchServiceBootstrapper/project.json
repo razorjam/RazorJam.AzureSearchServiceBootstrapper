@@ -25,11 +25,6 @@
             "url": "https://github.com/razorjam/RazorJam.AzureSearchServiceBootstrapper"
         }
     },
-    "scripts": {
-        "postcompile": [
-            "dotnet pack --no-build --configuration %compile:Configuration%"
-        ]
-    },
     "title": "RazorJam.AzureSearchServiceBootstrapper",
-    "version": "1.0.9-*"
+    "version": "*"
 }

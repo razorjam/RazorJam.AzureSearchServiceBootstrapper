@@ -10,31 +10,23 @@
   init:
     - git config --global core.autocrlf input
 
-  assembly_info:
-    patch: true
-    file: AssemblyInfo.*
-    assembly_version: '{version}'
-    assembly_file_version: '{version}'
-    assembly_informational_version: '{version}'
-
   configuration: Release
 
   before_build:
-   - dotnet restore
-   - cmd: echo %NugetApiKey%
+    - dotnet restore
+
+  after_build:
+    - dotnet pack --no-build --configuration %compile:Configuration% --version-suffix {version}
 
   test: off
 
   artifacts:
     - path: '**\*.nupkg'
-      name: 'nuget_package.nupkg'
+      name: nuget_package
 
   deploy:
-    - provider: NuGet
-      server: https://www.nuget.org/api/v2/package
-      api_key: '%NugetApiKey%'
-      skip_symbols: true
-      artifact: nuget_package.nupkg
+    - provider: Environment
+      name: nuget.org
 
   on_failure:
     - ps: Update-AppveyorBuild -Version "$($Env:APPVEYOR_BUILD_VERSION).$($Env:APPVEYOR_BUILD_NUMBER)-fail"
