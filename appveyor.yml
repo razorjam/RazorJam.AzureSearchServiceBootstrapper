@@ -16,7 +16,7 @@
     - dotnet restore
 
   after_build:
-    - dotnet pack --no-build --configuration %compile:Configuration% --version-suffix {version}
+    - dotnet pack --no-build --configuration %compile:Configuration% --version-suffix '{version}'
 
   test: off
 
