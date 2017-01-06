@@ -33,7 +33,7 @@
     - provider: NuGet
       server: https://www.nuget.org/api/v2/package
       api_key:
-        secure: $(NugetApiKey)
+        secure: '{NugetApiKey}'
       skip_symbols: true
       artifact: nuget_package.nupkg
 
