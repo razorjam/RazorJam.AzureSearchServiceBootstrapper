@@ -21,7 +21,7 @@
 
   before_build:
    - dotnet restore
-   - ps: echo $NugetApiKey
+   - ps: echo $env:NugetApiKey
 
   test: off
 
