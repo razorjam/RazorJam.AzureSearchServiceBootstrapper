@@ -21,7 +21,7 @@
 
   before_build:
    - dotnet restore
-   - ps: echo %NugetApiKey%
+   - cmd: echo %NugetApiKey%
 
   test: off
 
@@ -33,7 +33,7 @@
     - provider: NuGet
       server: https://www.nuget.org/api/v2/package
       api_key:
-        secure: $env:NugetApiKey
+        secure: $(NugetApiKey)
       skip_symbols: true
       artifact: nuget_package.nupkg
 
