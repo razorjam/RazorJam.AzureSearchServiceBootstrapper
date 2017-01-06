@@ -3,7 +3,7 @@
     only:
       - master
 
-  version: 1.0.8.{build}
+  version: 1.0.9.{build}
 
   image: Visual Studio 2015
 
@@ -11,11 +11,11 @@
     - git config --global core.autocrlf input
 
   assembly_info:
-    assembly_version: '{version}'
+    patch: true
+    file: AssemblyInfo.*
+    version: '{version}'
     assembly_file_version: '{version}'
     assembly_informational_version: '{version}'
-    file: AssemblyInfo.*
-    patch: true
 
   configuration: Release
 
@@ -30,7 +30,7 @@
 
   deploy:
     - provider: NuGet
-      server: https://www.nuget.org/api/v2
+      server: https://www.nuget.org/api/v2/package
       api_key:
         secure: $NugetApiKey
       skip_symbols: true
