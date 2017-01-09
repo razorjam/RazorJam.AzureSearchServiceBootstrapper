@@ -13,9 +13,7 @@
   configuration: Release
 
   before_build:
-    - ps: Write-Output "envs= $($Env:APPVEYOR_BUILD_VERSION).$($Env:APPVEYOR_BUILD_NUMBER)"
-    - ps: Write-Output "Version= {version}"
-    #- ps: .\update-version.ps1 -FilePath .\src\RazorJam.AzureSearchServiceBootstrapper\project.json -Version "hello"
+    - ps: .\update-version.ps1 -FilePath .\src\RazorJam.AzureSearchServiceBootstrapper\project.json -Version "$($Env:APPVEYOR_BUILD_VERSION)"
     - dotnet restore
 
   test: off
